@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  margin: 3vw;
+  font-size: 4rem;
+  display: inline-flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* You Can Change Colors Here  */
+:root {
+  --red: #ea4335;
+  --green: #34a853;
+  --yellow: #fbbc05;
+}
+
+h1 span {
+  --color: var(--red);
+  color: var(--color);
+  position: relative;
+  clip-path: inset(-20% 0);
+}
+
+h1 span:after {
+  content: "";
+  position: absolute;
+  inset: -20% 0;
+  background-color: var(--color);
+  animation-name: block-reveal;
+  animation-duration: 1s;
+  animation-delay: calc(var(--index) * 0.45s);
+  animation-fill-mode: both;
+}
+
+@keyframes block-reveal {
+  0% {
+    transform: translateX(-110%);
+  }
+  45%,
+  55% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+h1 span:nth-of-type(1) {
+  --color: var(--green);
+  --index: 0;
+}
+
+h1 span:nth-of-type(2) {
+  --color: var(--yellow);
+  --index: 1;
+}
+
+h1 span:nth-of-type(3) {
+  --index: 2;
+}
